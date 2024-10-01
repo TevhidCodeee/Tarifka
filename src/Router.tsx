@@ -2,9 +2,11 @@ import React from "react";
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Categories from "./Pages/Categories/Categories";
+import Details from "./Pages/Details/Details";
+import Meal from "./Pages/Meal/Meal";
 
-import Product from "./pages/product";
-import Detail from "./pages/Detail";
+
 
 const Stack = createStackNavigator();
 
@@ -12,19 +14,15 @@ export default function App(){
   return(
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="ProductPage" component={Product} options={{
-          title:'TevhidShop',
-          headerTitleAlign: 'center', 
-          headerStyle:{backgroundColor:'#64b5f6'},
-          headerTitleStyle:{color:'white'}
+        <Stack.Screen name="CategoriesPage" component={Categories} options={{
+          headerTitleStyle:{color:"#ffc000", fontWeight:"600", fontSize:25},
+          headerTitleAlign:"center"
         }}/>
-        <Stack.Screen name="DetailPage" component={Detail} options={{
-          title:'Detay',
-          headerTitleAlign: 'center', 
-          headerStyle:{backgroundColor:'#64b5f6'},
-          headerTitleStyle:{color:'white'},
-          headerTintColor:'white'
-        }}/>
+        <Stack.Screen name="MealPage" component={Meal} 
+        options={{
+          headerTitleStyle:{color:"#ffc000", fontWeight:"600", fontSize:25}, 
+          headerTitleAlign:"center"}}/>
+        <Stack.Screen name="DetailsPage" component={Details}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
